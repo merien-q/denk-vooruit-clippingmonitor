@@ -158,13 +158,33 @@ button,input{font-family:DV,Arial,sans-serif}
  body.mobile-detail-view .header-title h1{font-size:23px}
 }
 </style>
+<style id="listPeriodStyle">
+.list-period {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 20px;
+  border-top: 1px solid #eee8f3;
+  background: #fff;
+  color: #87758f;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px) {
+  .list-period {
+    padding: 9px 14px;
+    font-size: 10px;
+    flex-wrap: wrap;
+  }
+}
+</style>
 </head>
 <body>
 <div class="shell">
  <header class="topbar dashboard-header">
   <img class="header-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMzYuMjIgMTU2Ljg1Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiAjNDIxNDVmOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmYjYxMjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGc+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNTAuMTYsNzIuNTdoMy44OGM3LjQyLDAsMTIuMjYtMy45OSwxMi4yNi0xMy42MSwwLTcuOTktNC44NC0xMi4xNS0xMi43Ny0xMi4xNWgtMy4zN3YyNS43NlpNMTQzLjQxLDc4LjE0di0zNi45aDEwLjU3YzEyLjQ5LDAsMTkuNCw2LjI0LDE5LjQsMTcuMzgsMCwxMy4zMy03LjU0LDE5LjUyLTE5LjYzLDE5LjUyaC0xMC4zNVoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE5NC44Nyw2MS4yMWMwLTMuODItMi4wMi02LjMtNS4yOS02LjMtMi45OCwwLTUuMjMsMi4xOS01Ljc5LDYuM2gxMS4wOFpNMTkwLjAzLDQ5Ljc5YzYuODEsMCwxMS4wMiw0LjExLDExLjAyLDExLjM2LDAsMS42OS0uMDYsMy40OS0uMTcsNC43MmgtMTcuMjFjLjY3LDQuOTUsMy41NCw3LjIsOC41NSw3LjIsMy4xNSwwLDUuMzQtLjQ1LDguMS0xLjM1djUuMjljLTIuOTIuOTYtNS4xNywxLjQ2LTguODksMS40Ni04LjQ5LDAtMTMuOTUtNC41LTEzLjk1LTE0LjE3czUuNjItMTQuNTEsMTIuNTQtMTQuNTEiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIyMy4xNSw2MS4xYzAtMy42Ni0xLjgtNS4yMy01LjEyLTUuMjMtMi4wMiwwLTMuNDkuMjgtNS40LDEuMDd2MjEuMmgtNi4zNnYtMjcuNjdsNi4xOS0uMjh2Mi4wMmMyLjQyLTEuNTIsNC41Ni0yLjI1LDcuMzctMi4yNSw2LjA3LDAsOS42NywzLjQ5LDkuNjcsOS44NHYxOC4zNGgtNi4zNnYtMTcuMDRaIi8+CiAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMjQyLjA2IDc4LjE0IDIzNS43IDc4LjE0IDIzNS43IDM5LjE2IDI0Mi4wNiAzOC44MyAyNDIuMDYgNjAuMzcgMjQ0LjQyIDYwLjM3IDI1Mi40MSA1MC4zIDI1OS42NiA1MC4zIDI1MC4wNCA2Mi4wNiAyNjAuMzkgNzguMTQgMjUyLjY5IDc4LjE0IDI0NC44MSA2NS4zMiAyNDIuMDYgNjUuMzIgMjQyLjA2IDc4LjE0Ii8+CiAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMTQyLjY5IDg4LjUyIDE1MCA4OC41MiAxNTYuMTMgMTEwLjk2IDE1Ni41MyAxMTAuOTYgMTYyLjQzIDg4LjUyIDE2OS4wNyA4OC41MiAxNjAuMzUgMTE2LjM2IDE1MS41OCAxMTYuMzYgMTQyLjY5IDg4LjUyIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xODQuMzcsOTMuNjNjLTMuODgsMC02LjkyLDMuMjEtNi45Miw5LjExczIuNyw4LjQ5LDYuOTIsOC40OWMzLjg4LDAsNi45Mi0zLjIxLDYuOTItOS4xMXMtMi43Ni04LjQ5LTYuOTItOC40OU0xODMuOTgsMTE2Ljg2Yy03LjY1LDAtMTMuMDUtNC43Mi0xMy4wNS0xMy44OXM2LjQxLTE0Ljk2LDEzLjg0LTE0Ljk2LDEzLjA1LDQuNzIsMTMuMDUsMTMuOTUtNi40MSwxNC45LTEzLjg0LDE0LjkiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIxNC43Myw5My42M2MtMy44OCwwLTYuOTIsMy4yMS02LjkyLDkuMTFzMi43LDguNDksNi45Miw4LjQ5YzMuODgsMCw2LjkyLTMuMjEsNi45Mi05LjExcy0yLjc2LTguNDktNi45Mi04LjQ5TTIxNC4zNCwxMTYuODZjLTcuNjUsMC0xMy4wNS00LjcyLTEzLjA1LTEzLjg5czYuNDEtMTQuOTYsMTMuODQtMTQuOTYsMTMuMDUsNC43MiwxMy4wNSwxMy45NS02LjQxLDE0LjktMTMuODQsMTQuOSIvPgogICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjQ4LjE4LDk0LjdjLTEuMTgtLjI4LTEuOTctLjM5LTMuMTUtLjM5LTEuNzQsMC0zLjQ5LjU2LTUuNCwyLjAydjIwLjAyaC02LjM2di0yNy42N2w2LjMtLjI4djMuMjFjMS45MS0yLjQ3LDMuNjYtMy40Myw1Ljg1LTMuNDMsMS4yNCwwLDIuMTkuMTEsMy4yMS4zOWwtLjQ1LDYuMTNaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNTguNTcsMTA1LjU2YzAsMy44MiwxLjQ2LDUuNCw0Ljg5LDUuNCwyLjA4LDAsMy4zNy0uMzQsNS4yOS0xLjE4di0yMS4wOWw2LjM2LS4yOHYyNy45NWgtNi4xM3YtMS44NmMtMi40NywxLjUyLTQuMjcsMi4zNi03LjA5LDIuMzYtNi40NywwLTkuNjctMy42Ni05LjY3LTEwLjEydi0xOC4wNWw2LjM2LS4yOHYxNy4xNVoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4Ny41NywxMTYuMzZoLTYuMzZ2LTI3LjY3bDYuMzYtLjI4djI3Ljk1Wk0yODQuMzYsNzYuOTljMi40MiwwLDMuNzcsMS41MiwzLjc3LDMuNjYsMCwxLjk3LTEuMzUsMy42LTMuNzcsMy42cy0zLjcxLTEuNDYtMy43MS0zLjZjMC0xLjk3LDEuMjktMy42NiwzLjcxLTMuNjYiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI5Mi4zNSw4OC41MmgzLjM3di01LjA2bDYuMzYtLjU2djUuNjJoNy4wM3Y0Ljg5aC03LjAzdjEzLjE2YzAsMy4yMSwxLjY5LDQuNjEsNC4xNiw0LjYxLDEuMzUsMCwyLjE0LS4xMSwzLjYtLjQ1djUuMjljLTEuOTEuNTEtMy4zMi42OC01LjQ2LjY4LTUuMTcsMC04LjY2LTIuOTItOC42Ni05LjI4di0xNC4wMWgtMy4zN3YtNC44OVoiLz4KICA8L2c+CiAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMzAuNTksMzguM2MtMi40OC42NC00LjIxLDIuODgtNC4yMSw1LjQ0djM3LjUxYzAsMTcsOS44NywzMi43MSwyNS45LDQxLjIsMy42LDEuOTEsMTIuNzYsNy4wMSwxOS41OCw3LjAxczE1Ljk4LTUuMSwxOS41OC03LjAxYzE2LjAyLTguNDksMjUuOS0yNC4xOSwyNS45LTQxLjJ2LTM3LjUxYzAtMi41Ni0xLjczLTQuOC00LjIxLTUuNDRsLTM5LjI4LTEwLjJjLTEuMzEtLjM0LTIuNjgtLjM0LTMuOTgsMGwtMzkuMjgsMTAuMloiLz4KICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik02OS44Miw5NS40OWMtMS4yNCwwLTIuNDMtLjQ5LTMuMzEtMS4zN2wtMTIuNTUtMTIuNTVjLTEuNzUtMS43NS0yLjA1LTQuNi0uNDYtNi40OSwxLjc5LTIuMTQsNC45OS0yLjI0LDYuOTItLjMxbDkuMDEsOS4wMXMuMDUuMDIuMDcsMGwxNS42Ny0xOS4zMmMxLjU2LTEuOTIsNC4zNi0yLjUxLDYuNDEtMS4xMywyLjMxLDEuNTYsMi43NSw0LjczLDEuMDMsNi44NWwtMTkuMTMsMjMuNTljLS44NCwxLjAzLTIuMDcsMS42Ni0zLjQsMS43My0uMDgsMC0uMTYsMC0uMjQsMCIvPgo8L3N2Zz4=" alt="Denk vooruit" width="144" height="60">
-  <div class="header-title"><h1>Wie zegt wat?</h1><p>Clippingmonitor · Alle aandacht voor Denk vooruit, op één plek.</p></div>
-  <div class="top-meta"><span class="header-period">4 – 17 oktober 2026</span><span class="asof">Peildatum 17 oktober 2026</span></div>
+<div class="header-title"><h1>Wie zegt wat?</h1></div>
  </header>
  <section class="toolbar" aria-label="Clippings filteren">
   <nav class="filters" aria-label="Filter op markering">
@@ -185,7 +205,10 @@ button,input{font-family:DV,Arial,sans-serif}
    <div class="feature-actions"><button type="button" class="source-action" id="openSource">Lees bij de bron <span aria-hidden="true">↗</span></button></div>
   </article>
   <div class="feature" id="emptyFeature" hidden style="padding:65px 30px;text-align:center;min-height:430px"><div class="empty-image" style="background:none;min-height:260px"><img class="fallback-shield" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODMuNDYgMzE2LjY1Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiAjNDIxNDVmOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmI2MTI7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTEyLjY0LDMyLjUyQzQuOTIsMzQuNTMtLjQ3LDQxLjUtLjQ3LDQ5LjQ3djExNi44OGMwLDUyLjk4LDMwLjc3LDEwMS45Myw4MC43MSwxMjguMzgsMTEuMjMsNS45NCwzOS43NiwyMS44NSw2MS4wMiwyMS44NXM0OS43OS0xNS45LDYxLjAyLTIxLjg1YzQ5Ljk0LTI2LjQ1LDgwLjcxLTc1LjQsODAuNzEtMTI4LjM4VjQ5LjQ3YzAtNy45OC01LjM5LTE0Ljk1LTEzLjExLTE2Ljk1TDE0Ny40Ny43MmMtNC4wNy0xLjA2LTguMzQtMS4wNi0xMi40LDBMMTIuNjQsMzIuNTJaIi8+CiAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTM0LjksMjEwLjc1Yy0zLjg3LDAtNy41OS0xLjUzLTEwLjMzLTQuMjhsLTM5LjExLTM5LjExYy01LjQ1LTUuNDUtNi4zOC0xNC4zMy0xLjQzLTIwLjIzLDUuNTktNi42NiwxNS41NS02Ljk5LDIxLjU1LS45N2wyOC4wNywyOC4wOGMuMDYuMDYuMTYuMDYuMjItLjAxbDQ4LjgzLTYwLjIxYzQuODUtNS45OCwxMy41OS03LjgyLDE5Ljk3LTMuNTEsNy4yLDQuODcsOC41NSwxNC43MywzLjIsMjEuMzNsLTU5LjYyLDczLjUyYy0yLjYxLDMuMjEtNi40Niw1LjE3LTEwLjU5LDUuMzktLjI1LjAxLS41MS4wMi0uNzYuMDIiLz4KPC9zdmc+" width="100" height="100" alt="Denk vooruit-schild"><strong style="font-size:19px;color:var(--purple);margin-top:16px">Geen clippings in deze selectie</strong><span>Kies een ander filter of pas je zoekopdracht aan.</span></div></div>
-  <section class="list-panel" aria-label="Alle clippings op datum"><div class="list-heading"><h2 id="listHeading">Alle clippings</h2><span class="sort-label">Nieuwste eerst <span aria-hidden="true">↓</span></span></div><iframe id="articleList" class="list-frame" title="Scrollbare lijst met clippings, nieuwste eerst" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="list-footer"><span id="listCount">62 clippings</span><span class="scroll-indicator">Scroll voor meer <span aria-hidden="true">↓</span></span></div><button type="button" class="refresh-button mobile-refresh" id="refreshClippingsMobile">↻ Nieuwe clippings ophalen</button></section>
+  <section class="list-panel" aria-label="Alle clippings op datum"><div class="list-heading"><h2 id="listHeading">Alle clippings</h2><span class="sort-label">Nieuwste eerst <span aria-hidden="true">↓</span></span></div><iframe id="articleList" class="list-frame" title="Scrollbare lijst met clippings, nieuwste eerst" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="list-period">
+  <span id="periodText">4 – 17 oktober 2026</span>
+  <span id="asOfText">Peildatum 17 oktober 2026</span>
+</div><div class="list-footer"><span id="listCount">62 clippings</span><span class="scroll-indicator">Scroll voor meer <span aria-hidden="true">↓</span></span></div><button type="button" class="refresh-button mobile-refresh" id="refreshClippingsMobile">↻ Nieuwe clippings ophalen</button></section>
  </main>
  <footer class="bottom-bar"><p>⭐ ‘Wie doet wat?’ &nbsp; 🎬 Video &nbsp; 🔥 Kritisch &nbsp; ❤️ Communicatievakpers<br><span id="dataFootnote">Openbare publicaties en posts. Overnames staan apart in het overzicht.</span></p><button type="button" class="text-button" id="reset">Herstel oorspronkelijke markeringen</button></footer>
 </div>
@@ -243,6 +266,65 @@ function frameDocument(list){
  const itemHTML=list.map(a=>'<li><div class="item'+(a.id===state.selectedId?' selected':'')+'"><button type="button" class="select-row" data-id="'+esc(a.id)+'" title="'+esc(a.title)+'" aria-pressed="'+(a.id===state.selectedId)+'"><time datetime="'+a.date+'">'+esc(shortDate(a.date))+'</time><span class="emojis">'+(a.star?'<span title="Wie doet wat? genoemd" aria-label="Wie doet wat? genoemd">⭐</span>':'')+(a.critical?'<span title="Kritisch" aria-label="Kritisch">🔥</span>':'')+(a.trade?'<span title="Communicatievakpers" aria-label="Communicatievakpers">❤️</span>':'')+(a.video?'<span title="Relevante video" aria-label="Relevante video">🎬</span>':'')+'</span><span class="row-title"><span class="row-headline">'+esc(clipTitle(a.title))+'</span><span class="row-platform">'+esc(a.platform)+'</span></span></button><button type="button" class="source-link" data-source-id="'+esc(a.id)+'" title="Open bron in popup" aria-label="Open bron: '+esc(a.title)+'">↗</button></div></li>').join('');
  return '<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+FONT_CSS+'*{box-sizing:border-box}html{scrollbar-width:thin;scrollbar-color:#d7c9e4 #faf8fc}body{margin:0;font-family:DV,Arial,sans-serif;background:white;color:#241a30}ol{list-style:none;margin:0;padding:0}.item{font:inherit;color:inherit;width:100%;height:48px;display:grid;grid-template-columns:minmax(0,1fr) 32px;align-items:center;border-bottom:1px solid #efebf3;padding:0 10px 0 0;text-align:left;background:white;position:relative}.select-row{font:inherit;color:inherit;min-width:0;height:47px;display:grid;grid-template-columns:43px min-content minmax(110px,1fr);align-items:center;gap:7px;border:0;padding:0 0 0 19px;text-align:left;background:transparent;cursor:pointer}.source-link{width:26px;height:26px;border:0;border-radius:6px;background:transparent;color:#aaa2b2;font:700 16px/1 DV,Arial,sans-serif;cursor:pointer}.source-link:hover,.source-link:focus-visible{color:#42145f;background:#e9dff0}.item:hover{background:#f8f5fb}.item.selected{background:#f0e8f7;color:#42145f}.item.selected:before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:#784499}.select-row:focus-visible,.source-link:focus-visible{outline:2px solid #8b58ac;outline-offset:-3px}time{font-size:11px;line-height:1.4;color:#9a8da5;font-variant-numeric:tabular-nums}.row-title{display:block;min-width:110px;width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:14px;line-height:17px;font-weight:500;color:#241a30!important;visibility:visible!important;opacity:1!important}.selected .row-title{font-weight:700}.row-headline{display:inline;min-width:0}.row-platform{color:#aaa2b2;font-size:11px;font-weight:400;margin-left:5px;white-space:nowrap}.emojis:empty{display:none}.emojis{font-size:11px;white-space:nowrap}.empty{padding:56px 30px;color:#8c7a9b;text-align:center;font-size:12px;line-height:1.8}.empty strong{display:block;color:#42145f;margin-bottom:6px;font-size:14px}::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:#faf8fc}::-webkit-scrollbar-thumb{background:#d7c9e4;border-radius:10px;border:2px solid #faf8fc}@media(max-width:760px){.row-title{font-size:14px}.item{grid-template-columns:44px minmax(0,1fr) auto}}</style></head><body>'+(list.length?'<ol aria-label="Clippings op datum">'+itemHTML+'</ol>':'<div class="empty"><strong>Geen clippings gevonden</strong>'+(state.filter==='trade'?'In deze startset is nog geen communicatievakpers bevestigd. Je kunt het hartje testen via ‘Markeringen’ bij een artikel.':'Kies een ander filter of pas je zoekopdracht aan.')+'</div>')+'<script>const token='+JSON.stringify(token)+';function select(btn){parent.postMessage({type:"select-clipping",token,id:btn.dataset.id},"*")}document.addEventListener("click",e=>{const source=e.target.closest("button[data-source-id]");if(source){parent.postMessage({type:"open-source",token,id:source.dataset.sourceId},"*");return}const btn=e.target.closest("button[data-id]");if(btn)select(btn)});document.addEventListener("keydown",e=>{if(!["ArrowDown","ArrowUp"].includes(e.key))return;const items=[...document.querySelectorAll("button[data-id]")];let i=items.indexOf(document.activeElement);i=Math.max(0,Math.min(items.length-1,i+(e.key==="ArrowDown"?1:-1)));if(items[i]){e.preventDefault();items[i].focus();select(items[i])}});window.addEventListener("message",e=>{if(e.source!==parent||e.data?.token!==token||e.data?.type!=="active")return;document.querySelectorAll("button[data-id]").forEach(btn=>{const yes=btn.dataset.id===e.data.id;btn.classList.toggle("selected",yes);btn.setAttribute("aria-pressed",String(yes));if(yes)btn.scrollIntoView({block:"nearest"})})});parent.postMessage({type:"list-ready",token},"*");<\/script></body></html>';
 }
+function renderPeriod(timestamp) {
+  const timeZone = 'Europe/Amsterdam';
+
+  // Terugvaldatum vóór de eerste klik op ‘Nieuwe clippings ophalen’.
+  const end = timestamp
+    ? new Date(timestamp)
+    : new Date('2026-10-17T12:00:00Z');
+
+  const start = new Date('2026-10-04T12:00:00Z');
+
+  function dateParts(date) {
+    return Object.fromEntries(
+      new Intl.DateTimeFormat('nl-NL', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        timeZone
+      }).formatToParts(date).map(part => [part.type, part.value])
+    );
+  }
+
+  const startParts = dateParts(start);
+  const endParts = dateParts(end);
+
+  const period =
+    startParts.month === endParts.month &&
+    startParts.year === endParts.year
+      ? `${startParts.day} – ${endParts.day} ${endParts.month} ${endParts.year}`
+      : `${startParts.day} ${startParts.month} ${startParts.year} – ${endParts.day} ${endParts.month} ${endParts.year}`;
+
+  $('periodText').textContent = period;
+  $('asOfText').textContent =
+    `Peildatum ${endParts.day} ${endParts.month} ${endParts.year}`;
+}
+
+async function loadPeriod() {
+  try {
+    const response = await fetch(
+      SUPABASE_URL +
+        '/rest/v1/clipping_monitor_state?select=last_refresh_clicked_at&id=eq.true',
+      {
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: 'Bearer ' + SUPABASE_ANON_KEY
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Supabase gaf status ${response.status}`);
+    }
+
+    const rows = await response.json();
+    renderPeriod(rows[0]?.last_refresh_clicked_at);
+  } catch (error) {
+    console.warn('Peildatum kon niet uit Supabase worden geladen.', error);
+    renderPeriod(null);
+  }
+}
 function renderList(){
  visible=articles.filter(a=>(state.filter==='all'||a[state.filter])&&textNorm(a.title+' '+a.platform+' '+a.date).includes(textNorm(state.query)));
  if(!visible.some(a=>a.id===state.selectedId))state.selectedId=visible[0]?.id||null;
@@ -296,7 +378,11 @@ async function refreshClippings(){
 $('backToList').onclick=showMobileList;
 window.addEventListener('resize',()=>{if(isMobile()){if(!document.body.classList.contains('mobile-detail-view'))showMobileList();}else{document.body.classList.remove('mobile-list-view','mobile-detail-view');}});
 document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}}));
-if(isMobile())showMobileList();renderCounts();renderList();loadSupabaseClippings();
+if(isMobile())showMobileList();
+renderCounts();
+renderList();
+loadPeriod();
+loadSupabaseClippings();
 </script>
 </body>
 </html>
