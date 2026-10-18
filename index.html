@@ -132,7 +132,7 @@ button,input{font-family:DV,Arial,sans-serif}
 @media(max-width:760px){.headline-link h2{font-size:25px}.image-badges{top:10px;right:11px}}
 </style>
 <style id="v7MobileRefinement">
-.header-title h1{line-height:1.02}
+.header-home{display:block;line-height:0;border-radius:4px}.header-home:focus-visible{outline:2px solid var(--yellow);outline-offset:4px}.header-title h1{line-height:1.02}
 .header-title p{line-height:1.18}
 .mobile-refresh{display:none}
 @media(max-width:760px){
@@ -147,7 +147,7 @@ button,input{font-family:DV,Arial,sans-serif}
  body.mobile-list-view .search input{font-size:12px;line-height:1;height:32px}
  body.mobile-list-view .filter{height:34px;min-height:34px;padding:0 10px;align-items:center}
  body.mobile-list-view .list-frame{height:calc(100vh - 334px);min-height:385px}
- body.mobile-list-view .mobile-refresh{display:block;width:100%;height:38px;margin-top:12px;border-radius:7px}
+ body:not(.mobile-detail-view) .mobile-refresh{display:block!important;width:100%;height:38px;margin-top:12px;border-radius:7px}
  body.mobile-list-view .bottom-bar{display:none}
  body.mobile-detail-view .toolbar,
  body.mobile-detail-view .bottom-bar,
@@ -182,8 +182,10 @@ button,input{font-family:DV,Arial,sans-serif}
 </head>
 <body>
 <div class="shell">
- <header class="topbar dashboard-header">
+ <header class="topbar dashboard-header" id="overzicht">
+  <a class="header-home" id="headerHome" href="#overzicht" aria-label="Terug naar het overzicht">
   <img class="header-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMzYuMjIgMTU2Ljg1Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiAjNDIxNDVmOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2ZmYjYxMjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGc+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNTAuMTYsNzIuNTdoMy44OGM3LjQyLDAsMTIuMjYtMy45OSwxMi4yNi0xMy42MSwwLTcuOTktNC44NC0xMi4xNS0xMi43Ny0xMi4xNWgtMy4zN3YyNS43NlpNMTQzLjQxLDc4LjE0di0zNi45aDEwLjU3YzEyLjQ5LDAsMTkuNCw2LjI0LDE5LjQsMTcuMzgsMCwxMy4zMy03LjU0LDE5LjUyLTE5LjYzLDE5LjUyaC0xMC4zNVoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE5NC44Nyw2MS4yMWMwLTMuODItMi4wMi02LjMtNS4yOS02LjMtMi45OCwwLTUuMjMsMi4xOS01Ljc5LDYuM2gxMS4wOFpNMTkwLjAzLDQ5Ljc5YzYuODEsMCwxMS4wMiw0LjExLDExLjAyLDExLjM2LDAsMS42OS0uMDYsMy40OS0uMTcsNC43MmgtMTcuMjFjLjY3LDQuOTUsMy41NCw3LjIsOC41NSw3LjIsMy4xNSwwLDUuMzQtLjQ1LDguMS0xLjM1djUuMjljLTIuOTIuOTYtNS4xNywxLjQ2LTguODksMS40Ni04LjQ5LDAtMTMuOTUtNC41LTEzLjk1LTE0LjE3czUuNjItMTQuNTEsMTIuNTQtMTQuNTEiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIyMy4xNSw2MS4xYzAtMy42Ni0xLjgtNS4yMy01LjEyLTUuMjMtMi4wMiwwLTMuNDkuMjgtNS40LDEuMDd2MjEuMmgtNi4zNnYtMjcuNjdsNi4xOS0uMjh2Mi4wMmMyLjQyLTEuNTIsNC41Ni0yLjI1LDcuMzctMi4yNSw2LjA3LDAsOS42NywzLjQ5LDkuNjcsOS44NHYxOC4zNGgtNi4zNnYtMTcuMDRaIi8+CiAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMjQyLjA2IDc4LjE0IDIzNS43IDc4LjE0IDIzNS43IDM5LjE2IDI0Mi4wNiAzOC44MyAyNDIuMDYgNjAuMzcgMjQ0LjQyIDYwLjM3IDI1Mi40MSA1MC4zIDI1OS42NiA1MC4zIDI1MC4wNCA2Mi4wNiAyNjAuMzkgNzguMTQgMjUyLjY5IDc4LjE0IDI0NC44MSA2NS4zMiAyNDIuMDYgNjUuMzIgMjQyLjA2IDc4LjE0Ii8+CiAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMTQyLjY5IDg4LjUyIDE1MCA4OC41MiAxNTYuMTMgMTEwLjk2IDE1Ni41MyAxMTAuOTYgMTYyLjQzIDg4LjUyIDE2OS4wNyA4OC41MiAxNjAuMzUgMTE2LjM2IDE1MS41OCAxMTYuMzYgMTQyLjY5IDg4LjUyIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xODQuMzcsOTMuNjNjLTMuODgsMC02LjkyLDMuMjEtNi45Miw5LjExczIuNyw4LjQ5LDYuOTIsOC40OWMzLjg4LDAsNi45Mi0zLjIxLDYuOTItOS4xMXMtMi43Ni04LjQ5LTYuOTItOC40OU0xODMuOTgsMTE2Ljg2Yy03LjY1LDAtMTMuMDUtNC43Mi0xMy4wNS0xMy44OXM2LjQxLTE0Ljk2LDEzLjg0LTE0Ljk2LDEzLjA1LDQuNzIsMTMuMDUsMTMuOTUtNi40MSwxNC45LTEzLjg0LDE0LjkiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIxNC43Myw5My42M2MtMy44OCwwLTYuOTIsMy4yMS02LjkyLDkuMTFzMi43LDguNDksNi45Miw4LjQ5YzMuODgsMCw2LjkyLTMuMjEsNi45Mi05LjExcy0yLjc2LTguNDktNi45Mi04LjQ5TTIxNC4zNCwxMTYuODZjLTcuNjUsMC0xMy4wNS00LjcyLTEzLjA1LTEzLjg5czYuNDEtMTQuOTYsMTMuODQtMTQuOTYsMTMuMDUsNC43MiwxMy4wNSwxMy45NS02LjQxLDE0LjktMTMuODQsMTQuOSIvPgogICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjQ4LjE4LDk0LjdjLTEuMTgtLjI4LTEuOTctLjM5LTMuMTUtLjM5LTEuNzQsMC0zLjQ5LjU2LTUuNCwyLjAydjIwLjAyaC02LjM2di0yNy42N2w2LjMtLjI4djMuMjFjMS45MS0yLjQ3LDMuNjYtMy40Myw1Ljg1LTMuNDMsMS4yNCwwLDIuMTkuMTEsMy4yMS4zOWwtLjQ1LDYuMTNaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNTguNTcsMTA1LjU2YzAsMy44MiwxLjQ2LDUuNCw0Ljg5LDUuNCwyLjA4LDAsMy4zNy0uMzQsNS4yOS0xLjE4di0yMS4wOWw2LjM2LS4yOHYyNy45NWgtNi4xM3YtMS44NmMtMi40NywxLjUyLTQuMjcsMi4zNi03LjA5LDIuMzYtNi40NywwLTkuNjctMy42Ni05LjY3LTEwLjEydi0xOC4wNWw2LjM2LS4yOHYxNy4xNVoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4Ny41NywxMTYuMzZoLTYuMzZ2LTI3LjY3bDYuMzYtLjI4djI3Ljk1Wk0yODQuMzYsNzYuOTljMi40MiwwLDMuNzcsMS41MiwzLjc3LDMuNjYsMCwxLjk3LTEuMzUsMy42LTMuNzcsMy42cy0zLjcxLTEuNDYtMy43MS0zLjZjMC0xLjk3LDEuMjktMy42NiwzLjcxLTMuNjYiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI5Mi4zNSw4OC41MmgzLjM3di01LjA2bDYuMzYtLjU2djUuNjJoNy4wM3Y0Ljg5aC03LjAzdjEzLjE2YzAsMy4yMSwxLjY5LDQuNjEsNC4xNiw0LjYxLDEuMzUsMCwyLjE0LS4xMSwzLjYtLjQ1djUuMjljLTEuOTEuNTEtMy4zMi42OC01LjQ2LjY4LTUuMTcsMC04LjY2LTIuOTItOC42Ni05LjI4di0xNC4wMWgtMy4zN3YtNC44OVoiLz4KICA8L2c+CiAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMzAuNTksMzguM2MtMi40OC42NC00LjIxLDIuODgtNC4yMSw1LjQ0djM3LjUxYzAsMTcsOS44NywzMi43MSwyNS45LDQxLjIsMy42LDEuOTEsMTIuNzYsNy4wMSwxOS41OCw3LjAxczE1Ljk4LTUuMSwxOS41OC03LjAxYzE2LjAyLTguNDksMjUuOS0yNC4xOSwyNS45LTQxLjJ2LTM3LjUxYzAtMi41Ni0xLjczLTQuOC00LjIxLTUuNDRsLTM5LjI4LTEwLjJjLTEuMzEtLjM0LTIuNjgtLjM0LTMuOTgsMGwtMzkuMjgsMTAuMloiLz4KICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik02OS44Miw5NS40OWMtMS4yNCwwLTIuNDMtLjQ5LTMuMzEtMS4zN2wtMTIuNTUtMTIuNTVjLTEuNzUtMS43NS0yLjA1LTQuNi0uNDYtNi40OSwxLjc5LTIuMTQsNC45OS0yLjI0LDYuOTItLjMxbDkuMDEsOS4wMXMuMDUuMDIuMDcsMGwxNS42Ny0xOS4zMmMxLjU2LTEuOTIsNC4zNi0yLjUxLDYuNDEtMS4xMywyLjMxLDEuNTYsMi43NSw0LjczLDEuMDMsNi44NWwtMTkuMTMsMjMuNTljLS44NCwxLjAzLTIuMDcsMS42Ni0zLjQsMS43My0uMDgsMC0uMTYsMC0uMjQsMCIvPgo8L3N2Zz4=" alt="Denk vooruit" width="144" height="60">
+  </a>
 <div class="header-title"><h1>Wie zegt wat?</h1></div>
  </header>
  <section class="toolbar" aria-label="Clippings filteren">
@@ -222,7 +224,7 @@ const INITIAL = JSON.parse(document.getElementById('clippingsData').textContent)
 // Public read-only connection. The anon key is protected by the table's RLS policies.
 const SUPABASE_URL = 'https://uwmkllwtqozjgyldelzx.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3bWtsbHd0cW96amd5bGRlbHp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIyMzg4MjEsImV4cCI6MjEwNzgxNDgyMX0.Wj8ORzCbi6sM50r0FqSoGNsECUBAH7MN4YRQBGjo4iM';
-const FONT_CSS = document.getElementById('brandFonts').textContent;
+const FONT_CSS = document.getElementById('brandFonts').textContent + '.select-row{grid-template-columns:43px 18px minmax(110px,1fr)!important}.emojis{display:block!important;width:18px!important;overflow:hidden}.emojis:empty{display:block!important;visibility:hidden}.item.selected,.item:has(.select-row.selected){background:#f0e8f7!important;color:#42145f}.item.selected:before,.item:has(.select-row.selected):before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:#784499}';
 const clipTitle = (s) => { const chars=Array.from(String(s)); return chars.length>80 ? chars.slice(0,79).join('').trimEnd()+'…' : String(s); };
 const STORAGE_KEY = 'denkvooruit-clipping-flags-v1';
 const $ = (id) => document.getElementById(id);
@@ -247,7 +249,7 @@ function current(){return articles.find(a=>a.id===state.selectedId);}
 function isMobile(){return window.matchMedia?.('(max-width: 760px)').matches;}
 function showMobileList(){document.body.classList.remove('mobile-detail-view');document.body.classList.add('mobile-list-view');}
 function showMobileDetail(){document.body.classList.remove('mobile-list-view');document.body.classList.add('mobile-detail-view');}
-function selectArticle(id){if(!visible.some(a=>a.id===id))return;state.selectedId=id;renderFeature();if(isMobile())showMobileDetail();$('articleList').contentWindow?.postMessage({type:'active',token,id},'*');}
+function selectArticle(id){if(!visible.some(a=>a.id===id))return;state.selectedId=id;renderList();if(isMobile())showMobileDetail();$('articleList').contentWindow?.postMessage({type:'active',token,id},'*');}
 function renderFeature(){
  const a=current();$('feature').hidden=!a;$('emptyFeature').hidden=Boolean(a);if(!a)return;
  $('featureLabel').textContent=a.id===articles[0]?.id?'Nieuwste clipping':a.kind==='social-video'?'Social / video':'Geselecteerde clipping';
@@ -371,11 +373,12 @@ async function refreshClippings(){
  try{
   const response=await fetch(SUPABASE_URL+'/functions/v1/refresh-clippings',{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY,'x-refresh-secret':secret},body:'{}'});
   const result=await response.json();if(!response.ok)throw new Error(result.error||'Verversen mislukt');
-  await loadSupabaseClippings();notify((result.found||0)+' resultaten gecontroleerd en verwerkt.');
+  await loadSupabaseClippings();renderPeriod(new Date().toISOString());notify((result.found||0)+' resultaten gecontroleerd en verwerkt.');
  }catch(error){notify(error.message||'Nieuwe clippings ophalen lukt nu niet.');}
  finally{buttons.forEach((button,index)=>{button.disabled=false;button.textContent=originals[index];});}
 }
 $('backToList').onclick=showMobileList;
+$('headerHome').onclick=e=>{e.preventDefault();state.filter='all';state.query='';state.selectedId=articles[0]?.id||null;$('search').value='';document.querySelectorAll('[data-filter]').forEach(button=>{const active=button.dataset.filter==='all';button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});renderList();if(isMobile())showMobileList();document.getElementById('overzicht').scrollIntoView({block:'start'});};
 window.addEventListener('resize',()=>{if(isMobile()){if(!document.body.classList.contains('mobile-detail-view'))showMobileList();}else{document.body.classList.remove('mobile-list-view','mobile-detail-view');}});
 document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}}));
 if(isMobile())showMobileList();
